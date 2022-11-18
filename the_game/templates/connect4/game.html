@@ -1,0 +1,7 @@
+{% extends 'connect4/base.html' %} {% load static %} {% block content %}
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<p hidden id="game_link">{{absoluteLink}}</p>
+<p hidden id="game_id">{{game_id}}</p>
+<div id="root"></div>
+<script src="{% static 'the_game/index-bundle.js' %}"></script>
+{% endblock %}

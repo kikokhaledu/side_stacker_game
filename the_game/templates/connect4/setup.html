@@ -1,0 +1,21 @@
+{% extends 'connect4/base.html' %} {% block content %}
+<div class="jumbotron">
+  <h1>SET UP YOUR GAME!</h1>
+  <p class="lead"><i>Invite your friends later</i></p>
+  <form class="lead ss-flex-col" method="POST" action="{% url 'creategame' %}">
+    {% csrf_token %}
+    <div>
+      <input type="radio" id="player1" name="player" value="1" checked />
+      <label for="player1">Player 1</label>
+      <input type="radio" id="player2" name="player" value="2" />
+      <label for="player2">Player 2</label>
+    </div>
+    <input
+      type="submit"
+      class="btn btn-lg btn-secondary fw-bold border-white play"
+      value="Let's Play!"
+      style="margin: auto; margin-top: 1rem"
+    />
+  </form>
+</div>
+{% endblock %}

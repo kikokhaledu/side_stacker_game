@@ -1,0 +1,12 @@
+{% extends 'connect4/base.html' %} {% block content %}
+<h1>Let's play Side Stacker!</h1>
+<p class="lead">Start a game to play with your friends</p>
+<p class="lead">
+  <a
+    href="{% url 'setup' %}"
+    class="btn btn-lg btn-secondary fw-bold border-white play"
+    >Play Now</a
+  >
+</p>
+
+{% endblock %}

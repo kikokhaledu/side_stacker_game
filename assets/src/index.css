@@ -1,0 +1,163 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.column {
+	display: flex;
+}
+
+.message{
+	text-align: center;
+	font-size: 150%;
+	padding: 5% 0%;
+}
+
+.header{
+	font-family: "Times New Roman";
+	text-align: center;
+	margin: 10% auto;
+	width: 100%;
+	color:lightgray;
+}
+
+.boarder{
+	height:45px;
+	width:45px;
+	background-color:#4d2312;
+	padding: 2px;
+	border: 1px solid rgb(65, 65, 65);
+}
+
+.piece{
+	height:80%;
+	width:80%; 
+	top: 10%;
+	left: 10%;
+	border-radius: 50%;
+	position: relative;
+}
+
+.open-piece{
+	background-color: white;
+}
+
+.player-one-piece{
+	background-color: #121212;
+}
+
+.player-one-piece-possible{
+	background-color: rgb(130, 117, 117);
+}
+
+.player-two-piece-possible{
+	background-color: rgb(242, 179, 179);
+}
+
+.player-two-piece{
+	background-color: #e74c3c;
+}
+
+.board{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+
+.submessage{
+	text-align: center;
+}
+
+/* -------------------------------------------- */
+/*  Player */
+/* -------------------------------------------- */
+.icon-person{
+
+}
+
+.icon-player1{
+	background-color: #333;
+}
+
+.icon-player2{
+	background-color: rgb(255,0,0);
+}
+
+.player-title{
+
+}
+
+.player{
+		color: #333;
+}
+
+.player .card {
+	width: 30%;
+	margin: 20px auto;
+	transition: all ease-in-out 0.5s;
+}
+
+.player .card .card-header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.player .card .card-header h3 {
+	margin-top: 10px;
+	margin-left: 5px;
+	font-size: 1rem;
+	
+}
+
+.player .card .card-header ion-icon {
+	background-color: #333;
+	color: white;
+	border-radius: 500px;
+	padding: 10px;
+}
+
+.info-panal {
+	position: fixed;
+	top: 10vh;
+	left: 20px;
+	background-color: #f2e3c6;
+	color: #e6324b;
+	padding: 10px;
+	border-radius: 15px;
+}
+
+.info-panal p {
+	margin: 0;
+}
+
+.our-modal {
+	display: block;
+    background: rgba(0, 0, 0, 0.315);
+    color: black;
+}
+
+@media only screen and (max-width: 768px) {
+  .player .card .card-header ion-icon {
+		display: none;
+	}
+
+	.player .card .card-header h3{
+		font-size: .8rem;
+	}
+
+	.info-panal {
+		display: none;
+	}
+}

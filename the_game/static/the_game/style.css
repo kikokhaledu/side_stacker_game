@@ -1,0 +1,64 @@
+
+
+.home-background{
+    background: #13262F;
+    height: 100vh;
+}
+
+/**************************************************************/
+/* FOOTER */
+/*************************************************************/
+
+a {
+    color: #fff;
+}
+
+a:hover {
+    color: #fff;
+}
+
+
+/**************************************************************/
+/* HEADER */
+/*************************************************************/
+
+header a{
+    text-decoration: none;
+    color: #13262F;
+    transition: all ease-in-out -.5s;
+}
+
+header a:hover {
+    color: #13262F;
+}
+
+.middle-con {
+    margin: auto 0;
+}
+
+.play {
+    background-color: #FFC759;
+    color: #885053;
+}
+
+.ss-nav {
+    background-color: #FFC759;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: .6rem;
+    z-index: 9999;
+}
+
+.jumbotron {
+    background-color: #ECCBD9;
+    padding: 3rem;
+    border-radius: 20px;
+    color: #13262F;
+}
+
+.ss-flex-col {
+    display: flex;
+    flex-direction: column;
+}
