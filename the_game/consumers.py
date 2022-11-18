@@ -86,11 +86,11 @@ class Connect4Consumer(WebsocketConsumer):
         result = check_winner (game.game_state)
         if result != 0  and result !=3 :
             game.game_complete = True
-            game.game_winner = player
+            game.game_winner = result
             game.save()
         elif result == 3:
             game.game_complete = True
-            game.game_winner = 3
+            game.game_winner = result
             game.save()
             #tie
         else:
