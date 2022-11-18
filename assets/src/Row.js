@@ -24,18 +24,15 @@ class Row extends React.Component {
   }
 
   render() {
-    let valueCopy = this.props.value.slice();
+    let valueCopy = this.props.value.slice(); /// [0,0,0,0,0]
     if (this.state.hovering && this.props.is_turn) {
-      // const indexOfEmptyPiece = valueCopy[0];
-      // if (indexOfEmptyPiece !== -1) {
-      //   valueCopy[indexOfEmptyPiece] = this.props.player === 1 ? 3 : 4;
-      // }
+      // 1 -> black, 2 -> red, 3 -> gray, 4 -> pinkish
       valueCopy[0] = this.props.player === 1 ? 3 : 4;
       valueCopy[6] = this.props.player === 1 ? 3 : 4;
     }
 
     var key = 0;
-    const pieces = valueCopy.map((item, index) => {
+    const pieces = valueCopy.map((item) => {
       key += 1;
       return (
         <Piece

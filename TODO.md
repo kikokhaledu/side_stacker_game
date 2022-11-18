@@ -1,10 +1,9 @@
-1 - set Z-INDEX to navbar [x]
-2 - Player Cards Design [X]
-3 - Panal Info for the game [X]
-4 - Board Design [x]
-5 - Turns Indicator [X]
-6 - Toaster for Errors [X]
-7 - Hovering [X]
-8 - Implement POPUP
-
----
+# TODO list 
+- add a specteator feature 
+- add an invitation system 
+- users accounts and ingame currecny 
+- lose or earn in game moeny on win/loss
+- statistics page for admins 
+- statestics for user and user porfile 
+- frinds and chat system
+- make the board dynamic  so the player can choose the number of rows and cols 

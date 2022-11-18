@@ -131,10 +131,14 @@ class App extends React.Component {
               content:
                 parseInt(this.state.player) == parseInt(this.state.winner)
                   ? "You Won!"
+                  : parseInt(this.state.winner) == 3
+                  ? "It's a Draw"
                   : "You Lost!",
               color:
                 parseInt(this.state.player) == parseInt(this.state.winner)
                   ? "green"
+                  : parseInt(this.state.winner) == 3
+                  ? "orange"
                   : "red",
             }}
           />

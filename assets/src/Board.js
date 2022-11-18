@@ -4,13 +4,13 @@ import { is_turn } from "./game_utility";
 
 function Board(props) {
   let counter = -1;
-  const columns = props.board.map((col) => {
+  const rows = props.board.map((row) => {
     counter += 1;
     return (
       <Row
         player={props.player}
         is_turn={is_turn(props.board, props.player)}
-        value={col}
+        value={row}
         key={counter}
         rowNum={counter}
         clickHandler={props.SendMove}
@@ -19,7 +19,7 @@ function Board(props) {
   });
   return (
     <div className="board" data-testid="game">
-      {columns}
+      {rows}
     </div>
   );
 }
