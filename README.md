@@ -46,8 +46,6 @@ activate your venv
 
 ```bash
 cd venv/Scripts/
-Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
-./activate
 ```
 
 ```bash
