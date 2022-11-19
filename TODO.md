@@ -7,3 +7,4 @@
 - statestics for user and user porfile 
 - frinds and chat system
 - make the board dynamic  so the player can choose the number of rows and cols 
+- game modes time based or unlimted time 
