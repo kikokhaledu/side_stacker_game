@@ -5,8 +5,8 @@ from .game_utility import is_turn , check_winner
 
 # PlayerKeyMaxLength = 50
 
-class Connect4Game(models.Model):
-    def initilizeBoard():
+class side_stack_game(models.Model):
+    def initialize_board():
         #board is 7X7
         #the first index is col: 0 is left most row, 6 if right row
         #the second index is the row: 0 is the top row: 5 is the bottom row
@@ -14,12 +14,15 @@ class Connect4Game(models.Model):
         return [[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0]]
 
 
-    game_state = models.JSONField(default =initilizeBoard)
-    player1 = models.CharField(max_length = 100, default='')
-    player2 = models.CharField(max_length = 100, default='')
-    numPlayer1Connections = models.IntegerField(default=0)
-    numPlayer2Connections = models.IntegerField(default=0)
-    game_complete = models.BooleanField(default=False) 
+    game_state = models.JSONField(default =initialize_board)
+    player_1 = models.CharField(max_length = 100, default='')
+    player_2 = models.CharField(max_length = 100, default='')
+    player_1_name = models.CharField(max_length = 256, default='')
+    player_2_name = models.CharField(max_length = 256, default='')
+    num_player_1_connection = models.IntegerField(default=0)
+    num_player_2_connection = models.IntegerField(default=0)
+    game_complete = models.BooleanField(default=False)
+    against_bot = models.BooleanField(default=False)
     game_winner = models.CharField(max_length=1,null=True,blank=True)
     
 

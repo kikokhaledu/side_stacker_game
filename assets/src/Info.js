@@ -7,10 +7,13 @@ const Info = (props) => {
         <b>{props.player === 1 ? "Player 1" : "PLayer 2"}</b>
       </h5>
       <p>
+        <b>Game ID:</b> {props.id}
+      </p>
+      <p>
         <b>Turn:</b> {props.is_turn ? "Your Turn" : "Their Turn"}
       </p>
       <p>
-        <b>Opponent Connected:</b> {props.opponentConnected ? "Yes" : "No"}
+        <b>Opponent Connected:</b> {props.opponent_connected ? "Yes" : "No"}
       </p>
     </div>
   );

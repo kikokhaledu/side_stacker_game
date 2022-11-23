@@ -4,29 +4,29 @@ import React from "react";
 props expected:
  {
     "is_turn: boolean,
-    "isPlayer1": boolean,
+    "isplayer_1": boolean,
     "areYouThisPlayer", boolean,
 }
 */
 export default function Player(props) {
   let icon;
   let playerTitle;
-  if (props.isPlayer1) {
+  if (props.isplayer_1) {
     icon = (
       <ion-icon
         name="person-outline"
-        className="icon-person icon-player1"
+        className="icon-person icon-player_1"
       ></ion-icon>
     );
-    playerTitle = <h3 className="player-title">Player 1</h3>;
+    playerTitle = <h3 className="player-title">{props.name}</h3>;
   } else {
     icon = (
       <ion-icon
         name="person-outline"
-        className="icon-person icon-player2"
+        className="icon-person icon-player_2"
       ></ion-icon>
     );
-    playerTitle = <h3 className="player-title"> Player 2</h3>;
+    playerTitle = <h3 className="player-title">{props.name}</h3>;
   }
 
   let moveDescription = null;

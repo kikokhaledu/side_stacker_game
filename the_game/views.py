@@ -2,7 +2,7 @@ from django.http import HttpResponse, Http404
 from django.shortcuts import render, redirect, get_object_or_404
 import random
 from django.urls import reverse
-from .models import Connect4Game
+from .models import side_stack_game
 import random
 from datetime import datetime
 
@@ -21,24 +21,26 @@ def setup(request):
     """
     return render(request, 'connect4/setup.html')
 
-def creategame(request):
+def create_game(request):
     """
     this is were the game is created comes after the setup
     if you start first or not then the game and sets the session
     """
-    userId = GetSessionid(request)
+    user_id = get_session_id(request)
     if request.method == 'POST':
-        playerNum = request.POST['player'] #this is a string; either '1' or '2'
-        if playerNum not in ['1','2']:
+        player_num = request.POST['player'] #this is a string; either '1' or '2'
+        if player_num not in ['1','2']:
             raise Http404("Page not available")      
-        game = Connect4Game()
-        if playerNum == '1':
-            game.player1 = userId
-        if playerNum == '2':
-            game.player2 = userId
+        game = side_stack_game()
+        if player_num == '1':
+            game.player_1 = user_id
+        if player_num == '2':
+            game.player_2 = user_id
+        player_name = request.POST["name"]
+        game.player_1_name = player_name
         game.save()
         response = redirect('game', game_id = game.id)
-        SetSessionid(response, userId)
+        set_session_id(response, user_id)
         return response  
     else:
         raise Http404("Page not available")
@@ -51,14 +53,14 @@ def game(request, game_id):
     if it does not and a player is still null -> assign player to session ID and return
     else 404
     '''
-    userId = GetSessionid(request)
-    game = get_object_or_404(Connect4Game, pk=game_id)   
-    if userId in [game.player1, game.player2]:
+    user_id = get_session_id(request)
+    game = get_object_or_404(side_stack_game, pk=game_id)   
+    if user_id in [game.player_1, game.player_2]:
         pass #just return the game number
-    elif game.player1 == '':       
-        game.player1 = userId
-    elif game.player2 == '':
-        game.player2 = userId
+    elif game.player_1 == '':       
+        game.player_1 = user_id
+    elif game.player_2 == '':
+        game.player_2 = user_id
     else:
         #game is already full
         #TODO: allow spectators?
@@ -69,14 +71,14 @@ def game(request, game_id):
         'absoluteLink': request.build_absolute_uri(),
         'game_id': game_id
     })
-    SetSessionid(response, userId)
+    set_session_id(response, user_id)
     return response
 
-def SetSessionid(response, value):
+def set_session_id(response, value):
     """will set the current session id"""
     response.set_cookie(user_id_string,value)
 
-def GetSessionid(request):
+def get_session_id(request):
     """
     will get session id if there is no user id 
     it will assign a random  value
@@ -85,3 +87,20 @@ def GetSessionid(request):
     if value is None:
         return str(random.randint(0, 2147483647))
     return value
+
+
+def join_game(request):
+    """
+    Joining a Game
+    """
+    if request.method == 'POST':
+        name = request.POST['name']
+        game_id = request.POST['id']    
+        game = side_stack_game.objects.get(id=game_id)
+        if not game:
+          raise Http404("Page not available")
+        game.player_2_name = name
+        game.save()
+        return redirect('game', game_id = game.id)
+    else:
+        raise Http404("Page not available")
