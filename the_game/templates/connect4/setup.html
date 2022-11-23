@@ -5,27 +5,28 @@
   <form class="lead ss-flex-col" method="POST" action="{% url 'create_game' %}">
     {% csrf_token %}
     <div>
-      <input type="text" name="name" placeholder="Write your Name!" required />
+      <input type="text" name="name" placeholder="Type your Name!" required class="ss-input"/>
       <input hidden type="text" name="player" value="1" />
     </div>
     <input
       type="submit"
       class="btn btn-lg btn-secondary fw-bold border-white play"
-      value="Let's Play!"
+      value="Create game"
       style="margin: auto; margin-top: 1rem"
     />
   </form>
   <hr />
   <form class="lead ss-flex-col" method="POST" action="{% url 'join_game' %}">
     {% csrf_token %}
+    <p><i>Join a game</i></p>
     <div>
-      <input type="text" name="name" placeholder="Write your Name!" required />
-      <input type="number" name="id" placeholder="Game ID" required />
+      <input type="text" name="name" placeholder="Write your Name!" required class="ss-input" />
+      <input type="number" name="id" placeholder="Game ID" required class="ss-input" />
     </div>
     <input
       type="submit"
       class="btn btn-lg btn-secondary fw-bold border-white play"
-      value="Join Game"
+      value="Join" 
       style="margin: auto; margin-top: 1rem"
     />
   </form>

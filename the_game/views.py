@@ -104,3 +104,26 @@ def join_game(request):
         return redirect('game', game_id = game.id)
     else:
         raise Http404("Page not available")
+    
+    
+def create_single_game(request):
+    """
+    this is were the game is created comes after the setup
+    if you start first or not then the game and sets the session
+    """
+    user_id = get_session_id(request)
+    # if request.method == 'POST':
+    player_num = 1  
+    game = side_stack_game()
+    game.player_1 = user_id
+    game.player_2 = user_id+"bot"
+    # player_name = request.POST["name"]
+    game.player_1_name = "Human Player"
+    game.player_2_name = "Bot"
+    game.against_bot = True
+    game.num_player_1_connection = 1 
+    game.num_player_2_connection = 1
+    game.save()
+    response = redirect('game', game_id = game.id)
+    set_session_id(response, user_id)
+    return response  

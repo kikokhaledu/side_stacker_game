@@ -95,7 +95,7 @@ class side_stack_consumer(WebsocketConsumer):
             #tie
         else:
             pass
-        if game.against_bot:
+        if game.against_bot and not game.game_complete:
             if player == 1:
                 bot_move(game,2)
             else:
